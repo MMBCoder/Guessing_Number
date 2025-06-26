@@ -9,7 +9,7 @@ EMAIL_ADDRESS = 'mirza.22sept@gmail.com'
 EMAIL_PASSWORD = os.environ.get('EMAIL_PASSWORD')
 
 # Medium difficulty level
-MAX_ATTEMPTS = 10
+MAX_ATTEMPTS = 15
 BASE_POINTS = 10
 
 # Initialize the game
