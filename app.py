@@ -39,7 +39,7 @@ def send_email(user_name, attempts, correct_number):
 
 # Streamlit App
 st.title("Number Guessing Game")
-st.image("emoji_numbers.png", use_column_width=True)
+st.image("emoji_numbers.png", use_container_width=True)
 st.write("---")
 
 # Ask for user's name first
@@ -54,6 +54,9 @@ else:
 # Game interface
 if 'name_entered' in st.session_state and st.session_state.name_entered:
     st.write(f"Hello, **{st.session_state.user_name}**! Guess a number between 0 and 100.")
+
+    if 'number' not in st.session_state or 'guesses' not in st.session_state:
+        initialize_game()
 
     guess = st.number_input("Enter your guess:", min_value=0, max_value=100, key="number_guess")
 
