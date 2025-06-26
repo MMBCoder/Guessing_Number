@@ -9,7 +9,7 @@ EMAIL_ADDRESS = 'mirza.22sept@gmail.com'
 EMAIL_PASSWORD = os.environ.get('EMAIL_PASSWORD')
 
 # Medium difficulty level
-MAX_ATTEMPTS = 15
+MAX_ATTEMPTS = 10
 BASE_POINTS = 10
 
 # Initialize the game
@@ -39,13 +39,14 @@ def send_email(user_name, attempts, correct_number):
 
 # Streamlit App
 st.title("Number Guessing Game")
-st.image("emoji_numbers.png", use_container_width=True)
+st.image("emoji_numbers.png", width=300)
 st.write("---")
 
 # Ask for user's name first
-if 'user_name' not in st.session_state:
-    st.session_state.user_name = st.text_input("Enter your full name:")
-    if st.button("Next") and st.session_state.user_name.strip():
+if 'name_entered' not in st.session_state:
+    user_name = st.text_input("Enter your full name:")
+    if st.button("Next") and user_name.strip():
+        st.session_state.user_name = user_name.strip()
         st.session_state.name_entered = True
         initialize_game()
 else:
